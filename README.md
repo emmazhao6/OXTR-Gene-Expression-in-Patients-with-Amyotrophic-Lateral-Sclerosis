@@ -1,1 +1,4 @@
 # OXTR-Gene-Expression-in-Patients-with-Amyotrophic-Lateral-Sclerosis
+https://pubmed.ncbi.nlm.nih.gov/27487029/ 
+Brohawn, D. G., O'Brien, L. C., & Bennett, J. P., Jr (2016). RNAseq Analyses Identify Tumor Necrosis Factor-Mediated Inflammation as a Major Abnormality in ALS Spinal Cord. PloS one, 11(8), e0160520. https://doi.org/10.1371/journal.pone.0160520
+"We isolated total RNA using postmortem cervical spinal section homogenates from 7 sporadic ALS and 8 neurologically healthy control samples. We next prepared individual Illumina Total Stranded RNA-sequencing libraries for each sample. We sequenced each library with >50 million 2X150 sequencing reads on the NextSeq500. Our goal was to generate gene expression data for use in systems biology analyses to elucidate differences between the sALS and neurologically healthy control groups that may contribute to disease pathology."
