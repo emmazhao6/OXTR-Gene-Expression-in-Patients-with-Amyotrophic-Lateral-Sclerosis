@@ -16,19 +16,3 @@ What visualizations did you use to look at your data in different ways? I am goi
 
 •	Discussion: What did you learn? What additional sequencing and/or analysis is necessary?  What questions remain?  What new insights were gained?
 •	What did you learn? During this project preparation, I have learned that how to find the high throughput data and how to create file in github. Also I have learned how to download the RNAseq data from NCBI website. What additional sequencing and/or analysis is necessary? I am going to find the OXTR gene expression level from the data source of RNAseq. What questions remain? The author did not explore novel transcripts, indels, or selective exon usage specific to our sALS group in this dataset. And we may need to examine other gene expression level to see whether OXTR alone or together with other genes to influence the incidence of ALS. What new insights were gained? OUr next step is to investigate expression of smaller non-coding RNA’s, particularly microRNA’s, that regulate mRNA stability in the future study.
-
-Data download code(NCBI): zequanwang@zequans-mbp Documents % ls
-zequanwang@zequans-mbp Documents % cd sratoolkit.2.10.9-mac64
-zequanwang@zequans-mbp sratoolkit.2.10.9-mac64 % ls
-CHANGES			README.md		schema
-README-blastn		bin
-README-vdb-config	example
-zequanwang@zequans-mbp sratoolkit.2.10.9-mac64 % cd bin
-zequanwang@zequans-mbp bin % ./vdb-config -i
-zequanwang@zequans-mbp bin % ./prefetch SRR2558724
-
-2021-03-08T01:51:00 prefetch.2.10.9: 1) Downloading 'SRR2558724'...
-2021-03-08T01:51:00 prefetch.2.10.9:  Downloading via HTTPS...
-2021-03-08T02:11:30 prefetch.2.10.9:  HTTPS download succeed
-2021-03-08T02:11:49 prefetch.2.10.9:  'SRR2558724' is valid
-2021-03-08T02:11:49 prefetch.2.10.9: 1) 'SRR2558724' was downloaded successfully
