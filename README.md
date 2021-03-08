@@ -15,13 +15,5 @@ Illumina Total Stranded RNA sequencing reads from 15 postmortem cervical spinal 
 What visualizations did you use to look at your data in different ways? I am going to check the new gene, OXTR, to look at the association between OXTR and ALS risk by comparing the gene expression level in ALS patients and healthy control group. What are the different statistical methods you considered? I am going to use R, Linux, python which did not mention in the study. Why did you select the packages you did? The OXTR is a pain risk gene which related to etiology of neuropathy. By assessing and comparation of the gene expression level between ALS and healthy control group, we can understand the potential pathological mechanisms of ALS.
 
 •	Discussion: What did you learn? What additional sequencing and/or analysis is necessary?  What questions remain?  What new insights were gained?
-![image](https://user-images.githubusercontent.com/78558488/110374188-5e09b200-801e-11eb-83f7-98f063fa0561.png)
-
-What did you learn?
-During this project preparation, we have learned that how to find the high throughput data and how to create file in github. Also we have learned how to download the RNAseq data from NCBI website.
-What additional sequencing and/or analysis is necessary?
-We are going to find the OXTR gene expression level from the data source of RNAseq.
-What questions remain?
-The author did not explore novel transcripts, indels, or selective exon usage specific to our sALS group in this dataset. And we may need to examine other gene expression level to see whether OXTR alone or together with other genes to influence the incidence of ALS.
-What new insights were gained?
-OUr next step is to investigate expression of smaller non-coding RNA’s, particularly microRNA’s, that regulate mRNA stability in the future study.
+•	What did you learn? During this project preparation, I have learned that how to find the high throughput data and how to create file in github. Also I have learned how to download the RNAseq data from NCBI website. What additional sequencing and/or analysis is necessary? I am going to find the OXTR gene expression level from the data source of RNAseq. What questions remain? The author did not explore novel transcripts, indels, or selective exon usage specific to our sALS group in this dataset. And we may need to examine other gene expression level to see whether OXTR alone or together with other genes to influence the incidence of ALS. What new insights were gained? OUr next step is to investigate expression of smaller non-coding RNA’s, particularly microRNA’s, that regulate mRNA stability in the future study.
+![image](https://user-images.githubusercontent.com/78558488/110374895-3c5cfa80-801f-11eb-8291-6ccbf0b1e9fb.png)
