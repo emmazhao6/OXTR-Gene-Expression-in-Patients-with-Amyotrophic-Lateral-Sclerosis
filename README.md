@@ -1,4 +1,4 @@
-# OXTR-Gene-Expression-in-Patients-with-Amyotrophic-Lateral-Sclerosis
+# Tingting Zhao_Group 2: OXTR-Gene-Expression-in-Patients-with-Amyotrophic-Lateral-Sclerosis
 What did you learn?
 During this project preparation, I have learned that how to find the high throughput data and how to create file in github. Also I have learned how to download the RNAseq data from NCBI website.
 What additional sequencing and/or analysis is necessary?
