@@ -1,0 +1,23 @@
+ensembl_gene_id chromosome_name start_position end_position external_gene_name hgnc_symbol
+1 ENSG00000180914               3        8750381      8769628               OXTR        OXTR
+
+
+
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("biomaRt", version = "3.8")
+library("biomaRt")
+databases <- listEnsembl()
+databases
+ensembl <- useEnsembl(biomart="ensembl")
+datasets <- listDatasets(ensembl)
+datasets
+ensembl <- useEnsembl(biomart="ensembl", dataset="hsapiens_gene_ensembl")
+attributes <- listAttributes(ensembl)
+attributes
+filters <- listFilters(ensembl)
+filters
+hgnc_symbols <- c("NEUROD2", "PPP1R1B", "STARD3", "TCAP", "PNMT", "PGAP3", "ERBB2", "MIR4728", "MIEN1", "GRB7", "IKZF3")
+attributes <- c("ensembl_gene_id","chromosome_name","start_position","end_position","external_gene_name","hgnc_symbol")
+annotations_ENSG <- getBM(attributes=attributes, filter="hgnc_symbol", values=hgnc_symbols, mart=ensembl)
+annotations_ENSG
