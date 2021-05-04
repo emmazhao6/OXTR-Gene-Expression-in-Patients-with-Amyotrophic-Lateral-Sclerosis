@@ -71,6 +71,17 @@ Answer"Yes, you should still use the PE version - fastq-dump --split-files SRR##
 4) I finished count of each R1 and R2 separately. And I got raw data of each gene. However, I feel like we should merge them before doing the count? 
 Answer"You want to keep each library separate through the process - you will QC them, then map them as pairs, and once you have this - you will end up with one alignment file per library; I would use R1 and R2 in a single run for each library (but still as separate files in the run) - the numbers should indeed be about the same but in order to have the correct format for the BAM; the manual for HISAT2 is here: http://daehwankimlab.github.io/hisat2/manual/ and you can indicate each read pair with -1 and -2 "
 
+5)Issue with Trimmomatic on Xanadu. The ERROR reported that the ILLMINACLIP command was not found, which is strange. Our data is paired-end so the script is different than the one on the tutorial (which is single-end).  
+Answer"The standard Illumina universal adaptor can be removed with the built-in TruSeq clipping. You will need to provide the R1 and R2 as a set for the PE mode.  This should also include threads and a value that matches with -c with the slurm header.  I would recommend about 8 to 12 cores.
+
+The example for paired data can be found here: http://www.usadellab.org/cms/index.php?page=trimmomatic"
+
+##########################################################
+
+
+
+Our working directory in xanadu: /home/FCAM/EEB5300/EEBGroup2
+
 
 
 
