@@ -16,3 +16,46 @@ What visualizations did you use to look at your data in different ways? I am goi
 
 •	Discussion: What did you learn? What additional sequencing and/or analysis is necessary?  What questions remain?  What new insights were gained?
 •	What did you learn? During this project preparation, I have learned that how to find the high throughput data and how to create file in github. Also I have learned how to download the RNAseq data from NCBI website. What additional sequencing and/or analysis is necessary? I am going to find the OXTR gene expression level from the data source of RNAseq. What questions remain? The author did not explore novel transcripts, indels, or selective exon usage specific to our sALS group in this dataset. And we may need to examine other gene expression level to see whether OXTR alone or together with other genes to influence the incidence of ALS. What new insights were gained? OUr next step is to investigate expression of smaller non-coding RNA’s, particularly microRNA’s, that regulate mRNA stability in the future study.
+####################################
+Final project Done! (4-27-2021)
+1) Accessing the data using SRA-Toolkit:
+We downloaded data from the NCBI. The SRA accessions are as follow:
+ALS group: SRR2558714 & SRR2558715
+Healthy control: SRR2558718 & SRR2558719
+We download fastq files from SRA using sratoolkit 2.8.2.
+We used the split_files, dump each read into separate files as our reads are paired-end.
+The sequence files are in fastq format and compressed using gzip.
+2) FASTQC
+his step we perform a FASTQC which is helpful to see how the quality of the data has changed before and after trimming using Trimmomatic. To do this, we used the command-line of fastqc.
+The fastq module load was version of 0.11.7
+3) Quality Control Using Trimmomatic
+We used Trimmomatic trim low-quality reads and adapter.
+As our data is paired-end reads, we kept our fastq.gz separated in this procedure (SRR_1trim.fastq.gz & SRR_1un_trim.fastq.gz).
+Instead of SE for single-end made, we used PE for paried-end mode based on the Trimmomatic manual.
+ILLUMINACLIP: Truseq3-PE. Command searched for adapter sequence.
+Slidingwindow: we used 4:15 scaned through the read, cutting the read when the average base quality in a 4 window frops below 15 which is matched with our quality scores.  
+4) FASTQ before and after quality control
+We used Cyberduck to view the ftml files.
+5) Aligning reads to a genome using HISAT2
+We used HISAT2 mapping our data against the hg19 human genome
+We used wget command download the hg19 from ENSEMBL database.
+Next, we created a genome index which is ordered in an easily navigable way with pointers to the information we seek within.
+We used the hisat2-build module making a HISAT index file for the genome
+We used pipe to send the results from HISAT2 to samtools to sort the sequences, convert them to binary format and compress them.  The resulting files were in BAM format.
+Take one alignment summary of one single for example: 91.34% overall alignment rate.
+Then we looked at the BAM files by sametools view –H SRR2558714.bam | head
+6) Pairwise Differential Expression with Counts in R 
+This step, we used R package DESeq2 to identify differentially expressed (DE) genes.
+We used Cyberduck and downloaded the counts from xanadu.
+Then we followed the tutorial to analyze our data. 
+We did Histogram of the log scaled counts;Plot the shrunken log2 fold changes against the raw changes; we also get normalized, variance-stabilized transformed counts for visualization; We found top 50 log fold change genes. 
+7)In the future, we are going to enlarge the sample size and normalize the count of each interested gene to analyze. 
+
+
+
+
+
+
+
+
+
