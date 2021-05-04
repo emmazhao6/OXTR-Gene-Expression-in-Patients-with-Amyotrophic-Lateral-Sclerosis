@@ -53,7 +53,8 @@ This step, we used R package DESeq2 to identify differentially expressed (DE) ge
 We used Cyberduck and downloaded the counts from xanadu.
 Then we followed the tutorial to analyze our data. 
 We did Histogram of the log scaled counts;Plot the shrunken log2 fold changes against the raw changes; we also get normalized, variance-stabilized transformed counts for visualization; We found top 50 log fold change genes. 
-7)In the future, we are going to enlarge the sample size and normalize the count of each interested gene to analyze. 
+
+7)Next step: we are going to enlarge the sample size and normalize the count of each interested gene to analyze. 
 
 
 
