@@ -56,8 +56,20 @@ We did Histogram of the log scaled counts;Plot the shrunken log2 fold changes ag
 
 7)Next step: we are going to enlarge the sample size and normalize the count of each interested gene to analyze. 
 
+The problem we have encountered:
 
+1) How to download SRAtoolkit
+Answer: "you should no need to download any software yourself for your efforts on the project.  SRAtoolkit is already installed on the cluster - you should use the same version referenced in he module load command in the script you used in class in the RNA-Seq tutorial - and you just copy that and change the accession number for your download. Also for very long running jobs, always use an sbatch script (just as we did in class) so that you don’t have to worry about your network connection staying open during the full download."
 
+2)issues with Trimmomatic. The err reported that ILLUMINACLIP command not found, which is strange. I thought the Trimmomatic module was loaded then the ILLUMINACLIP should work automatically. 
+Answer: "OK perfect - so both ILLUMINACLIP:TruSeq3-PE or ILLUMINACLIP:TruSeq2-PE are built in - you don’t need to create the file for them specifically
+The example for PE data can be found here: http://www.usadellab.org/cms/index.php?page=trimmomatic"
+
+3) Although we are using paired end data, we do not need merge pairs together, because we only can see one data set for each sample. Do we still use the PE version? 
+Answer"Yes, you should still use the PE version - fastq-dump --split-files SRR#####; You will need to use the split-files command probably in order to get your Forward and Reverse sets split out. otherwise you might end up with just the one file representing both sets"
+
+4) I finished count of each R1 and R2 separately. And I got raw data of each gene. However, I feel like we should merge them before doing the count? 
+Answer"You want to keep each library separate through the process - you will QC them, then map them as pairs, and once you have this - you will end up with one alignment file per library; I would use R1 and R2 in a single run for each library (but still as separate files in the run) - the numbers should indeed be about the same but in order to have the correct format for the BAM; the manual for HISAT2 is here: http://daehwankimlab.github.io/hisat2/manual/ and you can indicate each read pair with -1 and -2 "
 
 
 
