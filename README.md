@@ -23,21 +23,16 @@ What visualizations did you use to look at your data in different ways? I am goi
 ####################################
 Final project Done! (4-27-2021)
 1) Accessing the data using SRA-Toolkit:
-We downloaded data from the NCBI. The SRA accessions are as follow:
-ALS group: SRR2558714 & SRR2558715
-Healthy control: SRR2558718 & SRR2558719
-We download fastq files from SRA using sratoolkit 2.8.2.
-We used the split_files, dump each read into separate files as our reads are paired-end.
-The sequence files are in fastq format and compressed using gzip.
+The original design contains 7 ALS and 8 healthy control samples. However, we only took 2 from each of the groups as those 4 samples are less likely affected by the confounding variables. We firstly downloaded data from the NCBI by using the SRA accession numbers(ALS group: SRR2558714 & SRR2558715; Healthy control: SRR2558718 & SRR2558719)
+Then, We download fastq files from SRA using sratoolkit 2.8.2.
+We used the split_files command in order to dump each library into separate files as our reads are paired-end. The sequence files are ended in fastq format and we compressed them using gzip. 
+We also double checked the contents fo the fastq files by using head. All the fastq files looked good at this step. 
 2) FASTQC
-his step we perform a FASTQC which is helpful to see how the quality of the data has changed before and after trimming using Trimmomatic. To do this, we used the command-line of fastqc.
-The fastq module load was version of 0.11.7
+This step we perform a FASTQC which is helpful to see how the quality of the sequences changed in terms of pre and post trim_file using Trimmomatic. To do this, we used the command-line of fastqc. The fastq module was loaded with version of 0.11.7
 3) Quality Control Using Trimmomatic
 We used Trimmomatic trim low-quality reads and adapter.
-As our data is paired-end reads, we kept our fastq.gz separated in this procedure (SRR_1trim.fastq.gz & SRR_1un_trim.fastq.gz).
-Instead of SE for single-end made, we used PE for paried-end mode based on the Trimmomatic manual.
-ILLUMINACLIP: Truseq3-PE. Command searched for adapter sequence.
-Slidingwindow: we used 4:15 scaned through the read, cutting the read when the average base quality in a 4 window frops below 15 which is matched with our quality scores.  
+As our data is paired-end reads, we kept our fastq.gz separated in this procedure (e.g.SRR_1trim.fastq.gz & SRR_1un_trim.fastq.gz).
+Instead of SE for single-end made, we used PE parameter for paried-end mode based on the Trimmomatic manual. In terms of ILLUMINACLIP, we applied Truseq3-PE command searched for adapter sequence. For slidingwindow we used 4:15 scaned through the read, cutting the read when the average base quality in a 4 window frops below 15 which is matched with our quality scores.  
 4) FASTQ before and after quality control
 We used Cyberduck to view the ftml files.
 5) Aligning reads to a genome using HISAT2
