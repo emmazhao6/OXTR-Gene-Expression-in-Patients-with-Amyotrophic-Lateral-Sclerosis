@@ -1,0 +1,31 @@
+
+#!/bin/bash
+#SBATCH --job-name=fastq_trimming
+#SBATCH -n 1
+#SBATCH -N 1
+#SBATCH -c 12
+#SBATCH --mem=20G
+#SBATCH --partition=general
+#SBATCH --qos=general
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=zequan.wang@uconn.edu
+#SBATCH -o %x_%j.out
+#SBATCH -e %x_%j.err
+
+echo `hostname`
+
+#################################################################
+# Trimming of Reads using Trimmomatic
+#################################################################
+module load Trimmomatic/0.39
+
+
+java -jar $Trimmomatic PE \
+        -threads 12 \
+        ../data/SRR2558714_1.fastq.gz ../data/SRR2558714_2.fastq.gz \
+        SRR2558714_1_trim.fastq.gz SRR2558714_1un_trim.fastq.gz \
+        SRR2558714_2_trim.fastq.gz SRR2558714_2un_trim.fastq.gz \
+        ILLUMINACLIP:/isg/shared/apps/Trimmomatic/0.39/adapters/TruSeq3-PE.fa:2:30:10  \
+        LEADING:3 TRAILING:3 \
+        SLIDINGWINDOW:4:15 \
+        MINLEN:36
