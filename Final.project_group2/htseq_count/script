@@ -1,0 +1,50 @@
+#!/bin/bash
+#SBATCH --job-name=htseq_count
+#SBATCH -n 1
+#SBATCH -N 1
+#SBATCH -c 8
+#SBATCH --mem=20G
+#SBATCH --partition=general
+#SBATCH --qos=general
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=tingting.zhao@uconn.edu
+
+#SBATCH -o %x_%j.out
+#SBATCH -e %x_%j.err
+
+
+echo `hostname`
+
+
+#################################################################
+# Download gff
+#################################################################
+
+wget ftp://ftp.ensembl.org/pub/grch37/release-87/gtf/homo_sapiens/Homo_sapiens.GRCh37.87.chr.gtf.gz
+
+gunzip Homo_sapiens.GRCh37.87.chr.gtf.gz
+
+
+
+
+#################################################################
+# Generate Counts
+#################################################################
+module load htseq/0.11.2
+
+htseq-count -s no -r pos -f bam ../align/SRR2558714.bam Homo_sapiens.GRCh37.87.chr.gtf > SRR2558714.counts
+
+
+#htseq-count -s no -r pos -f bam ../align/SRR2558714_1.bam Homo_sapiens.GRCh37.87.chr.gtf > SRR2558714_1.counts
+#htseq-count -s no -r pos -f bam ../align/SRR2558714_2.bam Homo_sapiens.GRCh37.87.chr.gtf > SRR2558714_2.counts
+#htseq-count -s no -r pos -f bam ../align/SRR2558715_1.bam Homo_sapiens.GRCh37.87.chr.gtf > SRR2558715_1.counts
+#htseq-count -s no -r pos -f bam ../align/SRR2558715_2.bam Homo_sapiens.GRCh37.87.chr.gtf > SRR2558715_2.counts
+#htseq-count -s no -r pos -f bam ../align/SRR2558718_1.bam Homo_sapiens.GRCh37.87.chr.gtf > SRR2558718_1.counts
+#htseq-count -s no -r pos -f bam ../align/SRR2558718_2.bam Homo_sapiens.GRCh37.87.chr.gtf > SRR2558718_2.counts
+#htseq-count -s no -r pos -f bam ../align/SRR2558719_1.bam Homo_sapiens.GRCh37.87.chr.gtf > SRR2558719_1.counts
+#htseq-count -s no -r pos -f bam ../align/SRR2558719_2.bam Homo_sapiens.GRCh37.87.chr.gtf > SRR2558719_2.counts
+
+
+htseq-count -s no -r pos -f bam ../align/SRR2558714.bam Homo_sapiens.GRCh37.87.chr.gtf > SRR2558714.counts
+
+########################################
