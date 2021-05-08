@@ -1,0 +1,32 @@
+#!/bin/bash
+#SBATCH --job-name=align
+#SBATCH -n 1
+#SBATCH -N 1
+#SBATCH -c 8
+#SBATCH --mem=20G
+#SBATCH --partition=xeon
+#SBATCH --qos=general
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=tingting.zhao@uconn.edu
+#SBATCH -o %x_%j.out
+#SBATCH -e %x_%j.err
+
+echo `hostname`
+
+
+#################################################################
+# Aligning to Genome
+#################################################################
+module load hisat2/2.2.0
+module load samtools/1.9
+
+hisat2 -p 8 --dta -x ../index/GRCh37 -U ../quality_control/SRR2558714_1_trim.fastq.gz | \
+        samtools view -S -h -u - | \
+        samtools sort -T SRR2558714_1 - >SRR2558714_1.bam
+
+
+
+hisat2 -p 8 --dta -x ../index/GRCh37 -U ../quality_control/SRR2558714_2_trim.fastq.gz | \
+        samtools view -S -h -u - | \
+        samtools sort -T SRR2558714_2 - >SRR2558714_2.bam
+
